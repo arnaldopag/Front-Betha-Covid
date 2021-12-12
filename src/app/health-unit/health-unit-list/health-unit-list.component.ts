@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./health-unit-list.component.css']
 })
 export class HealthUnitListComponent implements OnInit {
-  healthUnit   : healthUnit[] = [];
+  healthUnits   : healthUnit[] = [];
   selectedUnit : healthUnit;
   sucesso      : string;
   erro         : string
@@ -22,18 +22,18 @@ export class HealthUnitListComponent implements OnInit {
     this.serviceHealthUnit
      .getHealthUnit()
      .subscribe(deuCerto =>{
-       this.healthUnit = deuCerto
+       this.healthUnits = deuCerto
      })
   }
-  novoCadastro(){
+  newUnit(){
     this.route.navigate(['/unidades/Form']);
 }
 
-preparaDelecao(healthUnit : healthUnit){
+prepareDelete(healthUnit : healthUnit){
     this.selectedUnit = healthUnit;
 }
 
-deleteHealthUnit(){
+deleteUnit(){
     this.serviceHealthUnit
         .delete(this.selectedUnit)
         .subscribe(respostaComSucesso => {

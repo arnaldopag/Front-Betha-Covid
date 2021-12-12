@@ -36,13 +36,54 @@
             </div>  
             <div class="col-md-3">
                 <div class="form-group">
-                    <label>Phone:</label>
+                    <label>Telefone:</label>
                     <input type="text" class="form-control" disabled=true 
                     [(ngModel)]="healthUnit.phone" name="phone">
                 </div>
             </div>                      
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Descrição: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="healthUnit.description" name="description" >
+                </div>
+            </div>            
 
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Numero:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="healthUnit.streetNumber" name="streetNumber">
+                </div>
+            </div>  
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Cep:</label>
+                    <input type="text" class="form-control" disabled=true 
+                    [(ngModel)]="healthUnit.cep" name="cep">
+                </div>
+            </div>                      
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Latitude: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="healthUnit.latitude" name="latitude" >
+                </div>
+            </div>            
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Longitude:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="healthUnit.longitude" name="longitude">
+                </div>
+            </div>  
+            </div>                      
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <button type="submit" class="btn btn-primary" *ngIf="!healthUnit.id">

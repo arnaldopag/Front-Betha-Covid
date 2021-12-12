@@ -1,1 +1,94 @@
-<p>user-list works!</p>
+<h1 class="mt-4">Consulta</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Informações do Usuário</li>
+</ol>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="sucesso">
+        {{ sucesso }}
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="erro">
+        {{ erro }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <button class="btn btn-warning" (click)="newUser()">
+      <i class="fa fa-plus"></i>Novo
+    </button>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of user">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+
+            <td>
+              <button
+                class="btn btn-primary"
+                routerLink="/usuario/Form/{{ user.id }}"
+              >
+                <i class="fa fa-pen-square"></i>
+              </button>
+
+              <button
+                class="btn btn-danger"
+                (click)="prepareDelete(selectedUser)"
+                data-toggle="modal"
+                data-target="#modalSelecao"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="modalSelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação</h4>
+        </div>
+
+        <div class="modal-body" *ngIf="selectedUser">
+          Confirma a deleção do Usuário {{ selectedUser.name }} ?
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="btn btn-success"
+            (click)="deleteUser()"
+            data-dismiss="modal"
+          >
+            Confirmar
+          </button>
+
+          <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

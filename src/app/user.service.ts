@@ -23,7 +23,7 @@ export class UserService{
         return this.http.put<User>(`URL/${user.id}`, user);
     }  
   
-    deletar(user: User): Observable<any>{
+    delete(user: User): Observable<any>{
       return this.http.delete<any>(`URL/${user.id}`);
   }   
 

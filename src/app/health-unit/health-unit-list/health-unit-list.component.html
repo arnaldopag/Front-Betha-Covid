@@ -1,1 +1,83 @@
-<p>health-unit-list works!</p>
+<h1 class="mt-4">Unidades Cadastradas</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *nfIf="mensagemSucesso">
+                {{ sucesso }}
+            </div>
+
+            <div class="alert alert-danger" role="alert" *nfIf="mensagemErro">
+                {{ erro }}
+            </div>            
+        </div>
+    </div>
+
+
+    <div class="row">
+        <button class="btn btn-warning" (click)="newUnit()">
+            <i class="fa fa-plus"></i>Novo
+        </button>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <th>Nome</th>
+                    <th>Número</th>
+                    <th>Descrição</th>
+                    <th></th>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let unit of healthUnits">
+                        <td>{{ unit.name }}</td>
+                        <td>{{ unit.phone }}</td>
+                        <td>{{ unit.desciption }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/unidades/Form/{{ unit.id }}">
+                                <i class="fa fa-pen-square"></i>
+                            </button>
+
+                            <button class="btn btn-danger" (click)="prepareDelete(unit)" 
+                            data-toggle="modal" data-target="#modalSelecao">
+                                <i class="fa fa-trash"></i>
+                            </button>                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalSelecao" class="modal fade" role="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+
+                <div class="modal-body" *ngIf="selectedUnit">
+                    Confirma a exclusão da Unidade {{ selectedUnit.description }} ?
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deleteUnit()" 
+                    data-dismiss="modal">Confirmar</button>
+
+                    <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

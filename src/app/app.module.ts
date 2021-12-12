@@ -14,10 +14,6 @@ import {HealthUnitService} from './HeatlhUnit.service'
 import {UserService} from './user.service'
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
-import { HealthUnitFormComponent } from './health-unit/health-unit-form/health-unit-form.component';
-import { HealthUnitListComponent } from './health-unit/health-unit-list/health-unit-list.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
-import { UserListComponent } from './user/user-list/user-list.component';
 import { HealthUnitModule } from './health-unit/health-unit.module';
 import { UserModule } from './user/user.module';
 
@@ -27,10 +23,7 @@ import { UserModule } from './user/user.module';
     HomeComponent,
     LoginComponent,
     LayoutComponent,
-    HealthUnitFormComponent,
-    HealthUnitListComponent,
-    UserFormComponent,
-    UserListComponent
+    
   ],
   imports: [
     BrowserModule,
