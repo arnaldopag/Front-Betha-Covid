@@ -1,0 +1,63 @@
+<h1 class="mt-4">Unidade de Saúde</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+
+<div class="container">
+    <form #disciplinaForm="ngForm" (ngSubmit)="saveUnit()">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="sucesso == true">
+                    Unidade de Saúde/atualizada com sucesso!!!
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngFor="let meuErro of errosApi">
+                    {{ meuErro }}
+                </div>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="healthUnit.name" name="name" >
+                </div>
+            </div>            
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Rua:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="healthUnit.street" name="street">
+                </div>
+            </div>  
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="text" class="form-control" disabled=true 
+                    [(ngModel)]="healthUnit.phone" name="phone">
+                </div>
+            </div>                      
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" *ngIf="!healthUnit.id">
+                    <i class="fa fa-save"></i>Salvar
+                </button>
+
+                <button type="submit" class="btn btn-primary" *ngIf="healthUnit.id">
+                    <i class="fa fa-sync-alt"></i>Atualizar
+                </button>                
+
+                <button type="button" class="btn btn-danger ml-1" (click)="backToList()" >
+                    <i class="fa fa-backspace"></i>Voltar
+                </button>                
+            </div>
+        </div>
+
+    </form>
+</div>
