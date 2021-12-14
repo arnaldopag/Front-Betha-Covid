@@ -31,18 +31,6 @@ export class UserService{
 
     getUser() : Observable<User[]> {
 
-
-        const reqHeader = new HttpHeaders(
-            { 
-                'Content-Type': 'application/json',
-                'No-Auth':'True',
-                'Access-Control-Allow-Origin' : '*',
-                'Access-Control-Allow-Header':'Access-Control-Allow-Origin,X-Requested-With,Content-Type,Access',
-                'Access-Control-Allow-Methods':'GET,POST,DELETE,PATCH,PUT,OPTIONS'
-             }
-             );
-
-
         return this.http.get<User[]>("http://localhost:8080/users",{
             headers : {
                 'Authorization' : "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOiJhZG1pbiIsImV4cCI6MTYzOTUyNjIzNH0.4GwC8cWuD9X7rVeoQFbNmfCKKWO7HjEJ_rjNHKJM6YA",
@@ -54,7 +42,7 @@ export class UserService{
         return this.http.get<User>(`http://localhost:8080/users/1`);
     }
   
-    update(user: User): Observable<any>{
+    update(user: User): Observable<User>{
         return this.http.put<User>(`http://localhost:8080/users/${user.id}`, user,{
             headers : {
                 'Authorization' : "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOiJhZG1pbiIsImV4cCI6MTYzOTUyNjIzNH0.4GwC8cWuD9X7rVeoQFbNmfCKKWO7HjEJ_rjNHKJM6YA"

@@ -13,18 +13,18 @@ export class HealthUnitService{
         return this.http.post<healthUnit>('URl', healthUnit)
     }
     getHealthUnit() : Observable<healthUnit[]>{
-        return this.http.get<healthUnit[]>('url');
+        return this.http.get<healthUnit[]>('http://localhost:8080/health-units');
     }
   
     getHealthUnitById(id: number) : Observable<healthUnit>{
-      return this.http.get<healthUnit>( `trocar apis${id}`);
+      return this.http.get<healthUnit>( `http://localhost:8080/health-units/${id}`);
     }
   
     update(healthUnit : healthUnit) : Observable<any>{
-      return this.http.put<healthUnit>( `URL${healthUnit.id}`,healthUnit);
+      return this.http.put<healthUnit>( `http://localhost:8080/health-units/${healthUnit.id}`,healthUnit);
     }  
   
     delete(healthUnit : healthUnit) : Observable<any>{
-      return this.http.delete<any>( `URL${healthUnit.id}`);
+      return this.http.delete<any>( `http://localhost:8080/health-units/${healthUnit.id}`);
     }   
 }
