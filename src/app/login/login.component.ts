@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  meuUsuario: string;
-  minhaSenha: string;
-  erroDeLogin: boolean;
-  cadastrando: boolean;
+  user: string;
+  password: string;
+  loginError: boolean;
+  newUser: boolean;
 
   constructor(private minhaRota: Router) { }
 
@@ -21,11 +21,11 @@ export class LoginComponent {
 
   preparaParaCadastrar(event){
       event.preventDefault();
-      this.cadastrando = true;
+      this.newUser = true;
   }
 
   cancelaCadastro(){
-      this.cadastrando = false;
+      this.newUser = false;
   }
 
 
