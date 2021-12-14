@@ -8,5 +8,4 @@ export class healthUnit{
     cep: string;
     latitude: number;
     longitude: number;
-
 }

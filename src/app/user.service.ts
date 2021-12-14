@@ -39,7 +39,7 @@ export class UserService{
     }
   
     getUserById(codigoDoId: number) : Observable<User>{
-        return this.http.get<User>(`http://localhost:8080/users/1`);
+        return this.http.get<User>(`http://localhost:8080/users/${codigoDoId}`);
     }
   
     update(user: User): Observable<User>{

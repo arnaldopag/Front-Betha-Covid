@@ -17,7 +17,7 @@ export class HealthUnitService{
     }
   
     getHealthUnitById(id: number) : Observable<healthUnit>{
-      return this.http.get<healthUnit>( `http://localhost:8080/health-units/${id}`);
+      return this.http.get<healthUnit>(`http://localhost:8080/health-units/1`);
     }
   
     update(healthUnit : healthUnit) : Observable<any>{
